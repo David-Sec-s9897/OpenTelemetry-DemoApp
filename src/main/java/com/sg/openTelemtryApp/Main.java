@@ -27,7 +27,7 @@ import java.util.TimerTask;
  * 
  */
 public class Main {
-    public static final int SLEEP_BEFORE_THREADS = 60000;
+    public static final int SLEEP_BEFORE_THREADS = 60000; //new Task will start every 60 seconds
 
     public static void main(String[] args) {
         runThreads(SLEEP_BEFORE_THREADS);
@@ -41,6 +41,7 @@ public class Main {
                 try {
                     new NewTaskCreator().runRandomNumberOfTasks();
                 } catch (InterruptedException e) {
+                    System.out.println("InterruptedException" + e.getMessage());
                     e.printStackTrace();
                 }
             }
