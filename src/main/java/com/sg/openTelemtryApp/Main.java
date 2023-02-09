@@ -21,12 +21,15 @@ package com.sg.openTelemtryApp;
 import com.sg.openTelemtryApp.delegates.NewTaskCreator;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * A typical simple backing bean, that is backed to <code>helloworld.jsp</code>
  * 
  */
 public class Main {
+    public static final Logger LOGGER = Logger.getLogger(Main.class.getName());
     public static final int SLEEP_BEFORE_THREADS = 60000; //new Task will start every 60 seconds
 
     public static void main(String[] args) {
@@ -41,8 +44,8 @@ public class Main {
                 try {
                     new NewTaskCreator().runRandomNumberOfTasks();
                 } catch (InterruptedException e) {
-                    System.out.println("InterruptedException" + e.getMessage());
-                    e.printStackTrace();
+                    LOGGER.log(Level.SEVERE, "InterruptedException {0}", e.getMessage());
+                    Thread.currentThread().interrupt();
                 }
             }
         }, 0, repeatInterval);
