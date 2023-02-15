@@ -16,14 +16,20 @@
     <url>http://www.myorganization.org</url>
 
     <repositories>
-        <repository>
-            <id>oss.sonatype.org-snapshot</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
     </repositories>
 
     <build>
         <finalName>OpenTelemetry-DemoApp</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencyManagement>
@@ -76,7 +82,13 @@
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-api</artifactId>
-            <version>1.22.0</version>
+            <version>1.23.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-context</artifactId>
+            <version>1.23.0</version>
         </dependency>
 
         <dependency>

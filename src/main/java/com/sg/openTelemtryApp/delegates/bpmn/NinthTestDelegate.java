@@ -5,12 +5,8 @@ import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.trace.Tracer;
 
 public class NinthTestDelegate extends AbstractDelegate {
-  private OpenTelemetry openTelemetry;
-  public Tracer tracer;
 
-  public NinthTestDelegate(OpenTelemetry openTelemetry) {
-    this.openTelemetry = openTelemetry;
-    this.tracer = openTelemetry.getTracer(this.getClass().getName(), DELEGATE_VERSION);
+  public NinthTestDelegate() {
   }
 
   @Override
@@ -18,8 +14,4 @@ public class NinthTestDelegate extends AbstractDelegate {
     super.run();
   }
 
-  @Override
-  public Tracer getTracer() {
-    return tracer;
-  }
 }
