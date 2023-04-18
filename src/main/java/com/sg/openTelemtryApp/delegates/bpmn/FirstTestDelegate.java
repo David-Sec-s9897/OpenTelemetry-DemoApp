@@ -1,25 +1,30 @@
 package com.sg.openTelemtryApp.delegates.bpmn;
 
 import com.sg.openTelemtryApp.delegates.AbstractDelegate;
-import io.opentelemetry.api.OpenTelemetry;
+import com.sg.openTelemtryApp.interceptor.HelloAdder;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.SpanContext;
 import io.opentelemetry.api.trace.SpanKind;
 import io.opentelemetry.api.trace.TraceFlags;
 import io.opentelemetry.api.trace.TraceState;
 import io.opentelemetry.api.trace.Tracer;
+import io.opentelemetry.api.trace.TracerProvider;
 import io.opentelemetry.context.Context;
-import io.opentelemetry.context.ContextKey;
 import io.opentelemetry.context.Scope;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import javax.annotation.Priority;
+import javax.interceptor.Interceptor;
+import javax.interceptor.Interceptors;
 
+@HelloAdder
+@Interceptor
+@Priority(500)
 public class FirstTestDelegate extends AbstractDelegate {
 
   public final Tracer tracer = getTracer();
   private static Span parentSpan;
-
 
   public FirstTestDelegate() {
   }
@@ -37,6 +42,7 @@ public class FirstTestDelegate extends AbstractDelegate {
     super.close();
   }
 
+  @Interceptors(MetricsTrackingInterceptor.class)
   private void firstMethod() {
     Span span = tracer.spanBuilder(getClass().getName() + "::firstMethod Span").setParent(Context.current().with(parentSpan)).startSpan();
     subMethodOfFirstMethod(span);

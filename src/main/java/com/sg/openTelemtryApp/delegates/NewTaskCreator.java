@@ -7,7 +7,7 @@ public class NewTaskCreator {
 
     public static final int MAX_SLEEP_BETWEEN_TASKS = 20000;
 
-    List<AbstractDelegate> taskList = List.of(new FirstTestDelegate(), new SecondTestDelegate(), new ThirdTestDelegate(), new FourthTestDelegate(), new FifthTestDelegate(), new SixthTestDelegate(),
+    List<AbstractDelegate> taskList = List.of(new FirstTestDelegate(), new TwelfthTestDelegate(), new ThirdTestDelegate(), new FourthTestDelegate(), new FifthTestDelegate(), new SixthTestDelegate(),
             new SeventhTestDelegate(), new EighthTestDelegate(), new NinthTestDelegate(), new TenthTestDelegate(), new EleventhTestDelegate(), new TwelfthTestDelegate());
 
     public NewTaskCreator() {
