@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Publish package
-      run: mvn deploy --file pom.xml
+      run: cat ${{ secrets.USER }}
       env:
         MAVEN_USERNAME: ${{ secrets.USER }}
         MAVEN_PASSWORD: ${{ secrets.TOKEN }}
