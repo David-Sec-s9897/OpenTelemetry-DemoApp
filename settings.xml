@@ -27,10 +27,5 @@
   </profiles>
 
   <servers>
-    <server>
-      <id>github</id>
-      <username>David-Sec-s9897</username>
-      <password>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</password>
-    </server>
   </servers>
 </settings>
