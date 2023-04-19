@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sg.openTelemetryApp</groupId>
-    <artifactId>OpenTelemetry-DemoApp</artifactId>
+    <artifactId>opentelemetry-demoapp</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <properties>
@@ -37,7 +37,7 @@
             <dependency>
                 <groupId>io.opentelemetry</groupId>
                 <artifactId>opentelemetry-bom</artifactId>
-                <version>1.23.0-SNAPSHOT</version>
+                <version>1.23.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -95,20 +95,10 @@
 
         <dependency>
             <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-api</artifactId>
-            <version>1.23.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-context</artifactId>
             <version>1.23.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-sdk</artifactId>
-        </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-otlp</artifactId>
@@ -116,7 +106,7 @@
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-semconv</artifactId>
-            <version>1.20.1-alpha</version>
+            <version>1.25.0-alpha</version>
         </dependency>
 
         <dependency>
@@ -141,5 +131,13 @@
         </dependency>
 
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/David-Sec-s9897/OpenTelemetry-DemoApp</url>
+        </repository>
+    </distributionManagement>
 
 </project>
